@@ -30,8 +30,19 @@ const getAllOrders = async (req, res) => {
   }
 };
 
+const getOrders = async (req, res) => {
+  try {
+    const orders = await Order.findById(req.params.id);
+
+    return res.status(200).json({ orders });
+  } catch (error) {
+    return res.status(500).json({ message: 'Error while retrieving products.', error: error.message });
+  }
+};
+
 
 module.exports = {
   createOrder,
   getAllOrders,
+  getorder
 };

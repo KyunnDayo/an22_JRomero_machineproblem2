@@ -5,7 +5,9 @@ const { authenticateUser } = require('../authsys/authSys');
 
 router.post('/create', authenticateUser,orderController.createOrder);
 
+
 router.get('/getorder', authenticateUser, orderController.getOrders);
 router.get('/getall', authenticateUser, orderController.getAllOrders);
+
 
 module.exports = router;
